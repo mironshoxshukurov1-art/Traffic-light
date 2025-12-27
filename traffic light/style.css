@@ -1,0 +1,99 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Traffic Light Housing */
+.block {
+  background: #1a1a1a;
+  border-radius: 20px;
+  padding: 30px 20px;
+  width: 150px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 3px solid #0a0a0a;
+  position: relative;
+}
+
+.block::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  right: 20px;
+  height: 8px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), transparent);
+  border-radius: 50%;
+}
+
+/* Traffic Light Circles */
+.block > div {
+  width: 120px;
+  height: 120px;
+  border: 3px solid #000;
+  border-radius: 50%;
+  margin: 12px auto;
+  background: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 40px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+/* Red Light */
+.block .red.active {
+  background: #ff0000;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(255, 0, 0, 0.8),
+              0 0 60px rgba(255, 0, 0, 0.5);
+  color: #fff;
+}
+
+/* Yellow Light */
+.block .yellow.active {
+  background: #ffcc00;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(255, 204, 0, 0.8),
+              0 0 60px rgba(255, 204, 0, 0.5);
+  color: #333;
+}
+
+/* Green Light */
+.block .green.active {
+  background: #00cc00;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5),
+              0 0 30px rgba(0, 204, 0, 0.8),
+              0 0 60px rgba(0, 204, 0, 0.5);
+  color: #fff;
+}
+
+/* Inactive state */
+.block .red:not(.active),
+.block .yellow:not(.active),
+.block .green:not(.active) {
+  background: #2a2a2a;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.9);
+}
+
+.block div p {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 2px;
+}
